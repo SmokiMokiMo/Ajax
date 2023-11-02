@@ -23,15 +23,15 @@ class MyLogger:
             os.makedirs(root_directory)
 
         logger = logging.getLogger('my_logger')
-        logger.setLevel(logging.DEBUG)  # Set the log level to the desired level
+        logger.setLevel(logging.DEBUG)  
 
-        # Create a file handler for writing log messages to a file
+        
         file_handler = logging.FileHandler(log_file_path)
         file_handler.setLevel(logging.DEBUG)
 
-        # Create a console handler for displaying log messages in the console
+        
         console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setLevel(logging.DEBUG)  # Set the console log level (you can adjust it)
+        console_handler.setLevel(logging.DEBUG)  
 
         formatter = logging.Formatter("[%(asctime)s,%(msecs)03d] - %(levelname)s - %(message)s", "%Y-%m-%d %H:%M:%S")
 
@@ -39,8 +39,4 @@ class MyLogger:
         console_handler.setFormatter(formatter)
 
         logger.addHandler(file_handler)
-        logger.addHandler(console_handler)
-        
-        
-# log = MyLogger()
-# log.logger.info("test")
+        logger.addHandler(console_handler)   

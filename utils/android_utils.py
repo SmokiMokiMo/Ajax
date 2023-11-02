@@ -17,16 +17,20 @@ class AppCapabilitys():
         for line in process.stdout:
             self.log.logger.debug(f"Method: [run_appium_server] - Appium stdout: {line.strip()}")        
    
-    def android_get_uiid(self):
+    def android_get_uiid(self) -> str:
         try:
             result = subprocess.run("adb devices | grep 'device' | grep -v 'List of devices attached'", stdout=subprocess.PIPE, text=True, shell=True)
             output = result.stdout
             if result.returncode == 0:
                 output = (result.stdout).split()
                 if len(output) >= 2:
-                    devices = [device for device in output if device != 'device']                    
-                    self.log.logger.debug(f"Method: [android_get_uiid] - get device list: {devices}")
-                    return devices
+                    devices = [device for device in output if device != 'device']
+                    if devices:
+                        self.log.logger.debug(f"Method: [android_get_uiid] - get device list: {devices}")
+                        return devices[0]  # Return the first device's UDID
+                    else:
+                        self.log.logger.warning(f"Method: [android_get_uiid] - device list is empty: {output}")
+                        return None
                 else:
                     self.log.logger.warning(f"Method: [android_get_uiid] - device list is empty: {output}")
                     return None
@@ -41,7 +45,7 @@ class AppCapabilitys():
             "autoGrantPermissions": True,
             "automationName": "uiautomator2",
             "newCommandTimeout": 500,
-            "noSign": True,
+            "noSign": True, 
             "platformName": "Android",
             "deviceName": "emulator-5554",
             "platformVersion": "14",
@@ -51,16 +55,17 @@ class AppCapabilitys():
             "udid": "emulator-5554",
             "appPackage": "com.ajaxsystems",
             "appActivity": "com.ajaxsystems.ui.activity.LauncherActivity"
-        }        
-        # udid = self.android_get_desired_capabilities()
-        # self.logger.info(udid)
-        if udid is not None:
+        }
+        
+        if udid == 'auto':
+            self.log.logger.debug(f"Method: [android_get_desired_capabilities] - 'udid' is '{udid}' passed in method 'android_get_desired_capabilities'")
+            udid = self.android_get_uiid()
+            if udid:
+                android_data['udid'] = udid
+                self.log.logger.debug(f"Method: [android_get_desired_capabilities] - 'udid' is '{udid}' passed in method 'android_get_desired_capabilities'")
+            else:
+                self.log.logger.error("Method: [android_get_desired_capabilities] - Failed to retrieve UDID. Please check your device connection.")
+        else:
             android_data['udid'] = udid
-            self.log.logger.info(f"Method: [android_get_desired_capabilities] - 'udid' is '{udid}' passed in method 'android_get_desired_capabilities'")
-        return android_data
-    
 
-
-# app_cap = AppCapabilitys()
-# app_cap.is_appium_server_running()
-#print(app_cap.android_get_uiid()) # This will print the list of UIIDs
+        return android_data  

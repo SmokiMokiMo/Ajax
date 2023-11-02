@@ -25,8 +25,7 @@ class LoginPage():
         try:
             if isinstance(json_data, str):
                 json_data = json.loads(json_data)
-
-            # Continue with processing the JSON data
+            
             resource_ids = {}
 
             for key in main_keys:
@@ -53,7 +52,7 @@ class LoginPage():
         try:          
             # Load the JSON data
             json_data = self.open_json_file(file_path_test_json)
-            self.log.logger.debug(f"Method: [data preparation] - Opened successfully JSON with test_login_data.json '{json_data}'")
+            self.log.logger.debug(f"Method: [data preparation] - Opened successfully JSON with test_login_data.json 'json_data'")
             # Load credentials from the JSON file
             credentials:dict = json.loads(self.open_json_file(file_path_credentials_json))
             self.log.logger.debug(f"Method: [data preparation] - Opened successfully JSON with credentials.json {credentials}")

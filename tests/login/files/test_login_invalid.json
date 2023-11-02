@@ -1,0 +1,464 @@
+{
+    "log_in":[
+       {
+          "key":"elementId",
+          "value":"e6837ae4-b6a5-4c05-973c-fe408802216b",
+          "name":"elementId"
+       },
+       {
+          "key":"index",
+          "value":"1",
+          "name":"index"
+       },
+       {
+          "key":"package",
+          "value":"com.ajaxsystems",
+          "name":"package"
+       },
+       {
+          "key":"class",
+          "value":"android.widget.FrameLayout",
+          "name":"class"
+       },
+       {
+          "key":"text",
+          "value":"",
+          "name":"text"
+       },
+       {
+          "key":"resource-id",
+          "value":"com.ajaxsystems:id/authHelloLogin",
+          "name":"resource-id"
+       },
+       {
+          "key":"checkable",
+          "value":"false",
+          "name":"checkable"
+       },
+       {
+          "key":"checked",
+          "value":"false",
+          "name":"checked"
+       },
+       {
+          "key":"clickable",
+          "value":"true",
+          "name":"clickable"
+       },
+       {
+          "key":"enabled",
+          "value":"true",
+          "name":"enabled"
+       },
+       {
+          "key":"focusable",
+          "value":"true",
+          "name":"focusable"
+       },
+       {
+          "key":"focused",
+          "value":"false",
+          "name":"focused"
+       },
+       {
+          "key":"long-clickable",
+          "value":"false",
+          "name":"long-clickable"
+       },
+       {
+          "key":"password",
+          "value":"false",
+          "name":"password"
+       },
+       {
+          "key":"scrollable",
+          "value":"false",
+          "name":"scrollable"
+       },
+       {
+          "key":"selected",
+          "value":"false",
+          "name":"selected"
+       },
+       {
+          "key":"bounds",
+          "value":"[0,2043][1080,2169]",
+          "name":"bounds"
+       },
+       {
+          "key":"displayed",
+          "value":"true",
+          "name":"displayed"
+       }
+    ],
+    "email_input_field":[
+       {
+     "key": "elementId",
+     "value": "b16de3a7-fda3-4c76-9b48-67c182dad845",
+     "name": "elementId"
+   },
+   {
+     "key": "index",
+     "value": "0",
+     "name": "index"
+   },
+   {
+     "key": "package",
+     "value": "com.ajaxsystems",
+     "name": "package"
+   },
+   {
+     "key": "class",
+     "value": "androidx.compose.ui.platform.ComposeView",
+     "name": "class"
+   },
+   {
+     "key": "text",
+     "value": "",
+     "name": "text"
+   },
+   {
+     "key": "resource-id",
+     "value": "com.ajaxsystems:id/compose_view",
+     "name": "resource-id"
+   },
+   {
+     "key": "checkable",
+     "value": "false",
+     "name": "checkable"
+   },
+   {
+     "key": "checked",
+     "value": "false",
+     "name": "checked"
+   },
+   {
+     "key": "clickable",
+     "value": "false",
+     "name": "clickable"
+   },
+   {
+     "key": "enabled",
+     "value": "true",
+     "name": "enabled"
+   },
+   {
+     "key": "focusable",
+     "value": "false",
+     "name": "focusable"
+   },
+   {
+     "key": "focused",
+     "value": "false",
+     "name": "focused"
+   },
+   {
+     "key": "long-clickable",
+     "value": "false",
+     "name": "long-clickable"
+   },
+   {
+     "key": "password",
+     "value": "false",
+     "name": "password"
+   },
+   {
+     "key": "scrollable",
+     "value": "false",
+     "name": "scrollable"
+   },
+   {
+     "key": "selected",
+     "value": "false",
+     "name": "selected"
+   },
+   {
+     "key": "bounds",
+     "value": "[0,346][1080,519]",
+     "name": "bounds"
+   },
+   {
+     "key": "displayed",
+     "value": "true",
+     "name": "displayed"
+   }
+    ],
+    "password_input_field":[
+       {
+          "key":"elementId",
+          "value":"b0d58fe0-6965-4426-b312-e52fedb0230c",
+          "name":"elementId"
+       },
+       {
+          "key":"index",
+          "value":"3",
+          "name":"index"
+       },
+       {
+          "key":"package",
+          "value":"com.ajaxsystems",
+          "name":"package"
+       },
+       {
+          "key":"class",
+          "value":"android.widget.FrameLayout",
+          "name":"class"
+       },
+       {
+          "key":"text",
+          "value":"",
+          "name":"text"
+       },
+       {
+          "key":"resource-id",
+          "value":"com.ajaxsystems:id/authLoginPassword",
+          "name":"resource-id"
+       },
+       {
+          "key":"checkable",
+          "value":"false",
+          "name":"checkable"
+       },
+       {
+          "key":"checked",
+          "value":"false",
+          "name":"checked"
+       },
+       {
+          "key":"clickable",
+          "value":"false",
+          "name":"clickable"
+       },
+       {
+          "key":"enabled",
+          "value":"true",
+          "name":"enabled"
+       },
+       {
+          "key":"focusable",
+          "value":"false",
+          "name":"focusable"
+       },
+       {
+          "key":"focused",
+          "value":"false",
+          "name":"focused"
+       },
+       {
+          "key":"long-clickable",
+          "value":"false",
+          "name":"long-clickable"
+       },
+       {
+          "key":"password",
+          "value":"false",
+          "name":"password"
+       },
+       {
+          "key":"scrollable",
+          "value":"false",
+          "name":"scrollable"
+       },
+       {
+          "key":"selected",
+          "value":"false",
+          "name":"selected"
+       },
+       {
+          "key":"bounds",
+          "value":"[0,519][1080,692]",
+          "name":"bounds"
+       },
+       {
+          "key":"displayed",
+          "value":"true",
+          "name":"displayed"
+       }
+    ],
+    "log_in_confirm":[
+       {
+          "key":"elementId",
+          "value":"3f2eaa31-8b9c-40b7-a45f-59616eca641c",
+          "name":"elementId"
+       },
+       {
+          "key":"index",
+          "value":"1",
+          "name":"index"
+       },
+       {
+          "key":"package",
+          "value":"com.ajaxsystems",
+          "name":"package"
+       },
+       {
+          "key":"class",
+          "value":"android.widget.FrameLayout",
+          "name":"class"
+       },
+       {
+          "key":"text",
+          "value":"",
+          "name":"text"
+       },
+       {
+          "key":"resource-id",
+          "value":"com.ajaxsystems:id/authLogin",
+          "name":"resource-id"
+       },
+       {
+          "key":"checkable",
+          "value":"false",
+          "name":"checkable"
+       },
+       {
+          "key":"checked",
+          "value":"false",
+          "name":"checked"
+       },
+       {
+          "key":"clickable",
+          "value":"true",
+          "name":"clickable"
+       },
+       {
+          "key":"enabled",
+          "value":"true",
+          "name":"enabled"
+       },
+       {
+          "key":"focusable",
+          "value":"true",
+          "name":"focusable"
+       },
+       {
+          "key":"focused",
+          "value":"false",
+          "name":"focused"
+       },
+       {
+          "key":"long-clickable",
+          "value":"false",
+          "name":"long-clickable"
+       },
+       {
+          "key":"password",
+          "value":"false",
+          "name":"password"
+       },
+       {
+          "key":"scrollable",
+          "value":"false",
+          "name":"scrollable"
+       },
+       {
+          "key":"selected",
+          "value":"false",
+          "name":"selected"
+       },
+       {
+          "key":"bounds",
+          "value":"[0,1370][1080,1496]",
+          "name":"bounds"
+       },
+       {
+          "key":"displayed",
+          "value":"true",
+          "name":"displayed"
+       }
+    ],
+    "buger":[
+       {
+          "key":"elementId",
+          "value":"2c57ca08-e6a4-44b7-8a03-e07cd5f89cbc",
+          "name":"elementId"
+       },
+       {
+          "key":"index",
+          "value":"0",
+          "name":"index"
+       },
+       {
+          "key":"package",
+          "value":"com.ajaxsystems",
+          "name":"package"
+       },
+       {
+          "key":"class",
+          "value":"android.widget.ImageView",
+          "name":"class"
+       },
+       {
+          "key":"text",
+          "value":"",
+          "name":"text"
+       },
+       {
+          "key":"resource-id",
+          "value":"com.ajaxsystems:id/menuDrawer",
+          "name":"resource-id"
+       },
+       {
+          "key":"checkable",
+          "value":"false",
+          "name":"checkable"
+       },
+       {
+          "key":"checked",
+          "value":"false",
+          "name":"checked"
+       },
+       {
+          "key":"clickable",
+          "value":"true",
+          "name":"clickable"
+       },
+       {
+          "key":"enabled",
+          "value":"true",
+          "name":"enabled"
+       },
+       {
+          "key":"focusable",
+          "value":"true",
+          "name":"focusable"
+       },
+       {
+          "key":"focused",
+          "value":"false",
+          "name":"focused"
+       },
+       {
+          "key":"long-clickable",
+          "value":"false",
+          "name":"long-clickable"
+       },
+       {
+          "key":"password",
+          "value":"false",
+          "name":"password"
+       },
+       {
+          "key":"scrollable",
+          "value":"false",
+          "name":"scrollable"
+       },
+       {
+          "key":"selected",
+          "value":"false",
+          "name":"selected"
+       },
+       {
+          "key":"bounds",
+          "value":"[16,155][121,263]",
+          "name":"bounds"
+       },
+       {
+          "key":"displayed",
+          "value":"true",
+          "name":"displayed"
+       }
+    ]
+ }
+ 
+ 
