@@ -1,0 +1,148 @@
+[2023-11-03 20:45:41,395] - DEBUG - Method: [run_appium_server] - timer is ower.
+[2023-11-03 20:45:41,396] - DEBUG - Method: [android_get_desired_capabilities] - 'udid' is 'auto' passed in method 'android_get_desired_capabilities'
+[2023-11-03 20:45:41,404] - DEBUG - Method: [android_get_uiid] - get device list: ['emulator-5554']
+[2023-11-03 20:45:41,405] - DEBUG - Method: [android_get_desired_capabilities] - 'udid' is 'emulator-5554' passed in method 'android_get_desired_capabilities'
+[2023-11-03 20:45:51,100] - INFO - Method: [appium_driver] - Appium driver initialized successfully with desired_caps: <appium.webdriver.webdriver.WebDriver (session="e1e7eaeb-87ea-49c6-983f-8af9b305e570")>
+[2023-11-03 20:45:51,100] - INFO - Method: [user_login_fixture] - 'Login' initialized
+[2023-11-03 20:45:51,100] - INFO - Method: [user_login_fixture] - driver <appium.webdriver.webdriver.WebDriver (session="e1e7eaeb-87ea-49c6-983f-8af9b305e570")>
+[2023-11-03 20:45:51,101] - INFO - {'file_path': 'tests/login/files/test_login_data.json', 'credentials_path': 'tests/login/files/credentials.json'}
+
+
+[2023-11-03 20:45:51,102] - DEBUG - Method: [open_json_file] - Data extracted: 'data_from_file'
+[2023-11-03 20:45:51,102] - DEBUG - Method: [data preparation] - Opened successfully JSON with test_login_data.json 'json_data'
+[2023-11-03 20:45:51,102] - DEBUG - Method: [open_json_file] - Data extracted: 'data_from_file'
+[2023-11-03 20:45:51,102] - DEBUG - Method: [data preparation] - Opened successfully JSON with credentials.json {'login': 'qa.ajax.app.automation@gmail.com', 'password': 'qa_automation_password'}
+[2023-11-03 20:45:51,103] - INFO - Method: [get_keys_from_json] - Data extracted list of keys: ['log_in', 'email_input_field', 'password_input_field', 'log_in_confirm', 'buger', 'app_setings', 'sing_out', 'help', 'report_proble', 'add_hub', 'terms_of_service', 'build_ver']
+[2023-11-03 20:45:51,103] - INFO - Method: [data preparation] - extracted data 'main_keys' is: ['log_in', 'email_input_field', 'password_input_field', 'log_in_confirm', 'buger', 'app_setings', 'sing_out', 'help', 'report_proble', 'add_hub', 'terms_of_service', 'build_ver']
+[2023-11-03 20:45:51,103] - INFO - Method: [get_resource_id_from_json] - Data extracted dict: {'log_in': 'com.ajaxsystems:id/authHelloLogin', 'email_input_field': 'com.ajaxsystems:id/compose_view', 'password_input_field': 'com.ajaxsystems:id/authLoginPassword', 'log_in_confirm': 'com.ajaxsystems:id/authLogin', 'buger': 'com.ajaxsystems:id/menuDrawer', 'app_setings': 'com.ajaxsystems:id/settings', 'sing_out': 'com.ajaxsystems:id/accountInfoLogoutNavigate', 'help': 'com.ajaxsystems:id/help', 'report_proble': 'com.ajaxsystems:id/logs', 'add_hub': 'com.ajaxsystems:id/addHub', 'terms_of_service': 'com.ajaxsystems:id/documentation_text', 'build_ver': 'com.ajaxsystems:id/build'}
+[2023-11-03 20:45:51,103] - INFO - Method: [data preparation] - extracted data 'element_ids' is: {'log_in': 'com.ajaxsystems:id/authHelloLogin', 'email_input_field': 'com.ajaxsystems:id/compose_view', 'password_input_field': 'com.ajaxsystems:id/authLoginPassword', 'log_in_confirm': 'com.ajaxsystems:id/authLogin', 'buger': 'com.ajaxsystems:id/menuDrawer', 'app_setings': 'com.ajaxsystems:id/settings', 'sing_out': 'com.ajaxsystems:id/accountInfoLogoutNavigate', 'help': 'com.ajaxsystems:id/help', 'report_proble': 'com.ajaxsystems:id/logs', 'add_hub': 'com.ajaxsystems:id/addHub', 'terms_of_service': 'com.ajaxsystems:id/documentation_text', 'build_ver': 'com.ajaxsystems:id/build'}
+[2023-11-03 20:45:55,323] - INFO - Method: [click_element] - Clicked on element key: 'log_in', value: 'com.ajaxsystems:id/authHelloLogin'.
+[2023-11-03 20:45:55,324] - INFO - Method: [test_login] - Clicked on: log_in element.
+[2023-11-03 20:45:56,219] - INFO - Method: [click_element] - Clicked on element key: 'email_input_field', value: 'com.ajaxsystems:id/compose_view'.
+[2023-11-03 20:45:56,220] - INFO - Method: [send_keys_to_element] - Sent keys 'qa.ajax.app.automation@gmail.com'
+[2023-11-03 20:45:56,341] - INFO - Method: [send_keys_to_element] - Clearing element 'com.ajaxsystems:id/compose_view'.
+[2023-11-03 20:46:02,110] - INFO - Method: [send_keys_to_element] - Sent keys 'qa.ajax.app.automation@gmail.com' to element 'com.ajaxsystems:id/compose_view'.
+[2023-11-03 20:46:02,111] - INFO - Method: [test_login] - Cliked key: email_input_field 'com.ajaxsystems:id/compose_view' and sended  keys to 'qa.ajax.app.automation@gmail.com'.
+[2023-11-03 20:46:03,847] - INFO - Method: [click_element] - Clicked on element key: 'password_input_field', value: 'com.ajaxsystems:id/authLoginPassword'.
+[2023-11-03 20:46:03,847] - INFO - Method: [send_keys_to_element] - Sent keys 'qa_automation_password'
+[2023-11-03 20:46:03,914] - INFO - Method: [send_keys_to_element] - Clearing element 'com.ajaxsystems:id/compose_view'.
+[2023-11-03 20:46:07,146] - INFO - Method: [send_keys_to_element] - Sent keys 'qa_automation_password' to element 'com.ajaxsystems:id/compose_view'.
+[2023-11-03 20:46:07,147] - INFO - Method: [test_login] - Cliked key: password_input_field 'com.ajaxsystems:id/authLoginPassword' and sended  keys to 'qa_automation_password'.
+[2023-11-03 20:46:08,697] - INFO - Method: [click_element] - Clicked on element key: 'log_in_confirm', value: 'com.ajaxsystems:id/authLogin'.
+[2023-11-03 20:46:08,697] - INFO - Method: [test_login] - Clicked on: log_in_confirm element.
+[2023-11-03 20:46:13,975] - INFO - Method: [click_element] - Clicked on element key: 'buger', value: 'com.ajaxsystems:id/menuDrawer'.
+[2023-11-03 20:46:13,976] - INFO - Method: [test_login] - Clicked on: buger element.
+[2023-11-03 20:46:16,565] - INFO - Method: [click_element] - Clicked on element key: 'app_setings', value: 'com.ajaxsystems:id/settings'.
+[2023-11-03 20:46:16,565] - INFO - Method: [test_login] - Clicked on: app_setings element.
+[2023-11-03 20:46:19,053] - INFO - Method: [click_element] - Clicked on element key: 'sing_out', value: 'com.ajaxsystems:id/accountInfoLogoutNavigate'.
+[2023-11-03 20:46:19,053] - INFO - Method: [test_login] - Clicked on: sing_out element.
+[2023-11-03 20:46:21,426] - INFO - Method: [find_element] - Element key: 'log_in', value: 'com.ajaxsystems:id/authHelloLogin' was successfully found.
+[2023-11-03 20:46:21,427] - INFO - Method: [test_login] - Autorization successful.
+[2023-11-03 20:46:21,427] - INFO - Method: [test_user_login] - Was successful
+[2023-11-03 20:46:22,304] - INFO - Method: [reset_to_initial_state] - App state reset
+[2023-11-03 20:46:22,304] - ERROR - Method: [test_user_login] - module 'test_user.py' fixture teardown
+[2023-11-03 20:46:22,305] - INFO - Method: [user_login_fixture] - 'Login' fixture teardown
+[2023-11-03 20:46:22,307] - INFO - Method: [user_login_fixture] - 'Login' initialized
+[2023-11-03 20:46:22,308] - INFO - Method: [user_login_fixture] - driver <appium.webdriver.webdriver.WebDriver (session="e1e7eaeb-87ea-49c6-983f-8af9b305e570")>
+[2023-11-03 20:46:22,309] - INFO - {'file_path': 'tests/login/files/test_login_invalid.json', 'credentials_path': 'tests/login/files/invalid_credentials.json'}
+
+
+[2023-11-03 20:46:22,309] - DEBUG - Method: [open_json_file] - Data extracted: 'data_from_file'
+[2023-11-03 20:46:22,309] - DEBUG - Method: [data preparation] - Opened successfully JSON with test_login_data.json 'json_data'
+[2023-11-03 20:46:22,309] - DEBUG - Method: [open_json_file] - Data extracted: 'data_from_file'
+[2023-11-03 20:46:22,309] - DEBUG - Method: [data preparation] - Opened successfully JSON with credentials.json {'login': 'qa.ajax.app.automation@gmail.com', 'password': 'qa_automation_password_invalid'}
+[2023-11-03 20:46:22,309] - INFO - Method: [get_keys_from_json] - Data extracted list of keys: ['log_in', 'email_input_field', 'password_input_field', 'log_in_confirm', 'buger']
+[2023-11-03 20:46:22,309] - INFO - Method: [data preparation] - extracted data 'main_keys' is: ['log_in', 'email_input_field', 'password_input_field', 'log_in_confirm', 'buger']
+[2023-11-03 20:46:22,309] - INFO - Method: [get_resource_id_from_json] - Data extracted dict: {'log_in': 'com.ajaxsystems:id/authHelloLogin', 'email_input_field': 'com.ajaxsystems:id/authLoginEmail', 'password_input_field': 'com.ajaxsystems:id/authLoginPassword', 'log_in_confirm': 'com.ajaxsystems:id/authLogin', 'buger': 'com.ajaxsystems:id/menuDrawer'}
+[2023-11-03 20:46:22,310] - INFO - Method: [data preparation] - extracted data 'element_ids' is: {'log_in': 'com.ajaxsystems:id/authHelloLogin', 'email_input_field': 'com.ajaxsystems:id/authLoginEmail', 'password_input_field': 'com.ajaxsystems:id/authLoginPassword', 'log_in_confirm': 'com.ajaxsystems:id/authLogin', 'buger': 'com.ajaxsystems:id/menuDrawer'}
+[2023-11-03 20:46:27,679] - INFO - Method: [click_element] - Clicked on element key: 'log_in', value: 'com.ajaxsystems:id/authHelloLogin'.
+[2023-11-03 20:46:27,679] - INFO - Method: [test_login_invalid_pass] - Clicked on: log_in.
+[2023-11-03 20:46:28,507] - INFO - Method: [click_element] - Clicked on element key: 'email_input_field', value: 'com.ajaxsystems:id/authLoginEmail'.
+[2023-11-03 20:46:28,507] - INFO - Method: [send_keys_to_element] - Sent keys 'qa.ajax.app.automation@gmail.com'
+[2023-11-03 20:46:28,843] - INFO - Method: [send_keys_to_element] - skip  input 'com.ajaxsystems:id/authLoginEmail'.
+[2023-11-03 20:46:31,050] - INFO - Method: [send_keys_to_element] - Sent keys 'qa.ajax.app.automation@gmail.com' to element 'com.ajaxsystems:id/authLoginEmail'.
+[2023-11-03 20:46:31,051] - INFO - Method: [test_login_invalid_pass] - Cliked key: email_input_field 'com.ajaxsystems:id/authLoginEmail' and sended  keys to 'qa.ajax.app.automation@gmail.com'.
+[2023-11-03 20:46:32,650] - INFO - Method: [click_element] - Clicked on element key: 'password_input_field', value: 'com.ajaxsystems:id/authLoginPassword'.
+[2023-11-03 20:46:32,651] - INFO - Method: [send_keys_to_element] - Sent keys 'qa_automation_password_invalid'
+[2023-11-03 20:46:32,718] - INFO - Method: [send_keys_to_element] - Clearing element 'com.ajaxsystems:id/authLoginEmail'.
+[2023-11-03 20:46:37,094] - INFO - Method: [send_keys_to_element] - Sent keys 'qa_automation_password_invalid' to element 'com.ajaxsystems:id/authLoginEmail'.
+[2023-11-03 20:46:37,094] - INFO - Method: [test_login_invalid_pass] - Cliked key: password_input_field 'com.ajaxsystems:id/authLoginPassword' and sended  keys to 'qa_automation_password_invalid'.
+[2023-11-03 20:46:38,693] - INFO - Method: [click_element] - Clicked on element key: 'log_in_confirm', value: 'com.ajaxsystems:id/authLogin'.
+[2023-11-03 20:46:38,693] - INFO - Method: [test_login_invalid_pass] - Clicked on: log_in_confirm element.
+[2023-11-03 20:46:49,246] - ERROR - Method: [click_element] - Element 'buger' not clickable or not found. Element id is com.ajaxsystems:id/menuDrawer.
+[2023-11-03 20:46:49,247] - INFO - Method: [test_login_invalid_pass] - Clicked on: buger element.
+[2023-11-03 20:46:49,247] - ERROR - Method: [test_login_invalid_pass] - Autorization not successful.
+[2023-11-03 20:46:49,247] - INFO - Method: [test_login_invalid_pass] - Was successful
+[2023-11-03 20:46:50,281] - INFO - Method: [reset_to_initial_state] - App state reset
+[2023-11-03 20:46:50,282] - ERROR - Method: [test_login_invalid_pass] - module 'test_user.py' fixture teardown
+[2023-11-03 20:46:50,284] - INFO - Method: [user_login_fixture] - 'Login' fixture teardown
+[2023-11-03 20:46:50,285] - INFO - Method: [user_login_fixture] - 'Login' initialized
+[2023-11-03 20:46:50,286] - INFO - Method: [user_login_fixture] - driver <appium.webdriver.webdriver.WebDriver (session="e1e7eaeb-87ea-49c6-983f-8af9b305e570")>
+[2023-11-03 20:46:50,286] - INFO - {'file_path': 'tests/login/files/test_burger.json', 'credentials_path': 'tests/login/files/credentials.json'}
+
+
+[2023-11-03 20:46:50,286] - DEBUG - Method: [open_json_file] - Data extracted: 'data_from_file'
+[2023-11-03 20:46:50,286] - DEBUG - Method: [data preparation] - Opened successfully JSON with test_login_data.json 'json_data'
+[2023-11-03 20:46:50,286] - DEBUG - Method: [open_json_file] - Data extracted: 'data_from_file'
+[2023-11-03 20:46:50,286] - DEBUG - Method: [data preparation] - Opened successfully JSON with credentials.json {'login': 'qa.ajax.app.automation@gmail.com', 'password': 'qa_automation_password'}
+[2023-11-03 20:46:50,287] - INFO - Method: [get_keys_from_json] - Data extracted list of keys: ['log_in', 'email_input_field', 'password_input_field', 'log_in_confirm', 'buger', 'app_setings', 'back', 'help', 'report_proble', 'add_hub', 'terms_of_service', 'build_ver', 'close', 'sing_out']
+[2023-11-03 20:46:50,287] - INFO - Method: [data preparation] - extracted data 'main_keys' is: ['log_in', 'email_input_field', 'password_input_field', 'log_in_confirm', 'buger', 'app_setings', 'back', 'help', 'report_proble', 'add_hub', 'terms_of_service', 'build_ver', 'close', 'sing_out']
+[2023-11-03 20:46:50,287] - INFO - Method: [get_resource_id_from_json] - Data extracted dict: {'log_in': 'com.ajaxsystems:id/authHelloLogin', 'email_input_field': 'com.ajaxsystems:id/compose_view', 'password_input_field': 'com.ajaxsystems:id/authLoginPassword', 'log_in_confirm': 'com.ajaxsystems:id/authLogin', 'buger': 'com.ajaxsystems:id/menuDrawer', 'app_setings': 'com.ajaxsystems:id/settings', 'back': 'com.ajaxsystems:id/back', 'help': 'com.ajaxsystems:id/help', 'report_proble': 'com.ajaxsystems:id/logs', 'add_hub': 'com.ajaxsystems:id/addHub', 'terms_of_service': 'com.ajaxsystems:id/documentation_text', 'build_ver': 'com.ajaxsystems:id/build', 'close': 'com.ajaxsystems:id/backButton', 'sing_out': 'com.ajaxsystems:id/accountInfoLogoutNavigate'}
+[2023-11-03 20:46:50,287] - INFO - Method: [data preparation] - extracted data 'element_ids' is: {'log_in': 'com.ajaxsystems:id/authHelloLogin', 'email_input_field': 'com.ajaxsystems:id/compose_view', 'password_input_field': 'com.ajaxsystems:id/authLoginPassword', 'log_in_confirm': 'com.ajaxsystems:id/authLogin', 'buger': 'com.ajaxsystems:id/menuDrawer', 'app_setings': 'com.ajaxsystems:id/settings', 'back': 'com.ajaxsystems:id/back', 'help': 'com.ajaxsystems:id/help', 'report_proble': 'com.ajaxsystems:id/logs', 'add_hub': 'com.ajaxsystems:id/addHub', 'terms_of_service': 'com.ajaxsystems:id/documentation_text', 'build_ver': 'com.ajaxsystems:id/build', 'close': 'com.ajaxsystems:id/backButton', 'sing_out': 'com.ajaxsystems:id/accountInfoLogoutNavigate'}
+[2023-11-03 20:46:55,044] - INFO - Method: [click_element] - Clicked on element key: 'log_in', value: 'com.ajaxsystems:id/authHelloLogin'.
+[2023-11-03 20:46:55,045] - INFO - Method: [test_burger] - Clicked on: log_in.
+[2023-11-03 20:46:57,031] - INFO - Method: [click_element] - Clicked on element key: 'email_input_field', value: 'com.ajaxsystems:id/compose_view'.
+[2023-11-03 20:46:57,031] - INFO - Method: [send_keys_to_element] - Sent keys 'qa.ajax.app.automation@gmail.com'
+[2023-11-03 20:46:57,109] - INFO - Method: [send_keys_to_element] - skip  input 'com.ajaxsystems:id/compose_view'.
+[2023-11-03 20:46:58,317] - INFO - Method: [send_keys_to_element] - Sent keys 'qa.ajax.app.automation@gmail.com' to element 'com.ajaxsystems:id/compose_view'.
+[2023-11-03 20:46:58,317] - INFO - Method: [test_burger] - Cliked key: email_input_field 'com.ajaxsystems:id/compose_view' and sended  keys to 'qa.ajax.app.automation@gmail.com'.
+[2023-11-03 20:46:59,902] - INFO - Method: [click_element] - Clicked on element key: 'password_input_field', value: 'com.ajaxsystems:id/authLoginPassword'.
+[2023-11-03 20:46:59,903] - INFO - Method: [send_keys_to_element] - Sent keys 'qa_automation_password'
+[2023-11-03 20:47:00,002] - INFO - Method: [send_keys_to_element] - Clearing element 'com.ajaxsystems:id/authLoginPassword'.
+[2023-11-03 20:47:03,473] - INFO - Method: [send_keys_to_element] - Sent keys 'qa_automation_password' to element 'com.ajaxsystems:id/authLoginPassword'.
+[2023-11-03 20:47:03,473] - INFO - Method: [test_burger] - Cliked key: password_input_field 'com.ajaxsystems:id/authLoginPassword' and sended  keys to 'qa_automation_password'.
+[2023-11-03 20:47:05,110] - INFO - Method: [click_element] - Clicked on element key: 'log_in_confirm', value: 'com.ajaxsystems:id/authLogin'.
+[2023-11-03 20:47:05,111] - INFO - Method: [test_burger] - Clicked on: log_in_confirm element.
+[2023-11-03 20:47:10,863] - INFO - Method: [click_element] - Clicked on element key: 'buger', value: 'com.ajaxsystems:id/menuDrawer'.
+[2023-11-03 20:47:10,864] - INFO - Method: [test_burger] - Clicked on: buger element.
+[2023-11-03 20:47:13,482] - INFO - Method: [click_element] - Clicked on element key: 'app_setings', value: 'com.ajaxsystems:id/settings'.
+[2023-11-03 20:47:13,483] - INFO - Method: [test_burger] - Clicked on: app_setings element.
+[2023-11-03 20:47:13,676] - INFO - Method: [click_element] - Clicked on element key: 'back', value: 'com.ajaxsystems:id/back'.
+[2023-11-03 20:47:13,676] - INFO - Method: [test_burger] - Clicked on: back element.
+[2023-11-03 20:47:14,933] - INFO - Method: [click_element] - Clicked on element key: 'buger', value: 'com.ajaxsystems:id/menuDrawer'.
+[2023-11-03 20:47:14,933] - INFO - Method: [test_burger] - Clicked on: buger element.
+[2023-11-03 20:47:17,742] - INFO - Method: [click_element] - Clicked on element key: 'help', value: 'com.ajaxsystems:id/help'.
+[2023-11-03 20:47:17,742] - INFO - Method: [test_burger] - Clicked on: help element.
+[2023-11-03 20:47:20,381] - INFO - Method: [click_element] - Clicked on element key: 'back', value: 'com.ajaxsystems:id/back'.
+[2023-11-03 20:47:20,381] - INFO - Method: [test_burger] - Clicked on: back element.
+[2023-11-03 20:47:20,585] - INFO - Method: [click_element] - Clicked on element key: 'buger', value: 'com.ajaxsystems:id/menuDrawer'.
+[2023-11-03 20:47:20,585] - INFO - Method: [test_burger] - Clicked on: buger element.
+[2023-11-03 20:47:23,131] - INFO - Method: [click_element] - Clicked on element key: 'report_proble', value: 'com.ajaxsystems:id/logs'.
+[2023-11-03 20:47:23,131] - INFO - Method: [test_burger] - Clicked on: report_proble element.
+[2023-11-03 20:47:23,876] - INFO - Method: [swipe] - Swipe completed successfully.
+[2023-11-03 20:47:23,877] - INFO - Method: [test_burger] - Clicked on: report_proble element.
+[2023-11-03 20:47:24,934] - INFO - Method: [click_element] - Clicked on element key: 'buger', value: 'com.ajaxsystems:id/menuDrawer'.
+[2023-11-03 20:47:24,935] - INFO - Method: [test_burger] - Clicked on: buger element.
+[2023-11-03 20:47:27,679] - INFO - Method: [click_element] - Clicked on element key: 'add_hub', value: 'com.ajaxsystems:id/addHub'.
+[2023-11-03 20:47:27,679] - INFO - Method: [test_burger] - Clicked on: add_hub element.
+[2023-11-03 20:47:27,910] - INFO - Method: [click_element] - Clicked on element key: 'close', value: 'com.ajaxsystems:id/backButton'.
+[2023-11-03 20:47:27,910] - INFO - Method: [test_burger] - Clicked on: close element.
+[2023-11-03 20:47:28,614] - INFO - Method: [click_element] - Clicked on element key: 'buger', value: 'com.ajaxsystems:id/menuDrawer'.
+[2023-11-03 20:47:28,614] - INFO - Method: [test_burger] - Clicked on: buger element.
+[2023-11-03 20:47:30,975] - INFO - Method: [click_element] - Clicked on element key: 'terms_of_service', value: 'com.ajaxsystems:id/documentation_text'.
+[2023-11-03 20:47:30,975] - INFO - Method: [test_burger] - Clicked on: terms_of_service element.
+[2023-11-03 20:47:31,780] - INFO - Method: [click_element] - Clicked on element key: 'back', value: 'com.ajaxsystems:id/back'.
+[2023-11-03 20:47:31,780] - INFO - Method: [test_burger] - Clicked on: back element.
+[2023-11-03 20:47:33,255] - INFO - Method: [click_element] - Clicked on element key: 'buger', value: 'com.ajaxsystems:id/menuDrawer'.
+[2023-11-03 20:47:33,255] - INFO - Method: [test_burger] - Clicked on: buger element.
+[2023-11-03 20:47:34,712] - INFO - Method: [click_element] - Clicked on element key: 'app_setings', value: 'com.ajaxsystems:id/settings'.
+[2023-11-03 20:47:34,713] - INFO - Method: [test_burger] - Clicked on: app_setings element.
+[2023-11-03 20:47:37,010] - INFO - Method: [click_element] - Clicked on element key: 'sing_out', value: 'com.ajaxsystems:id/accountInfoLogoutNavigate'.
+[2023-11-03 20:47:37,010] - INFO - Method: [test_burger] - Clicked on: sing_out element.
+[2023-11-03 20:47:39,474] - INFO - Method: [find_element] - Element key: 'log_in', value: 'com.ajaxsystems:id/authHelloLogin' was successfully found.
+[2023-11-03 20:47:39,475] - INFO - Method: [test_burger] - Autorization successful.
+[2023-11-03 20:47:39,475] - INFO - Method: [test_burger] - Test successful.
+[2023-11-03 20:47:39,475] - INFO - Method: [test_user_sidebar] - Was successful
+[2023-11-03 20:47:40,501] - INFO - Method: [reset_to_initial_state] - App state reset
+[2023-11-03 20:47:40,501] - ERROR - Method: [test_user_sidebar] - module 'test_user.py' fixture teardown
+[2023-11-03 20:47:40,503] - INFO - Method: [user_login_fixture] - 'Login' fixture teardown

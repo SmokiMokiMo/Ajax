@@ -1,13 +1,11 @@
 from utils.logger import MyLogger
 import json
+
 class LoginPage():    
     
-    def __init__(self):
-        
-        self.log = MyLogger()    
-        
-        
-        
+    def __init__(self):        
+        self.log = MyLogger() 
+             
         
     def get_keys_from_json(self, json_values) -> list:
         try:
@@ -47,21 +45,18 @@ class LoginPage():
             self.log.logger.error(f"Method: [get_resource_id_from_json] - got error: {e}")
     
     # Define the test method for user login    
-    
     def preper_data(self, file_path_test_json, file_path_credentials_json, resourceid):
         try:          
-            # Load the JSON data
             json_data = self.open_json_file(file_path_test_json)
-            self.log.logger.debug(f"Method: [data preparation] - Opened successfully JSON with test_login_data.json 'json_data'")
-            # Load credentials from the JSON file
+            self.log.logger.debug(f"Method: [data preparation] - Opened successfully JSON with test_login_data.json 'json_data'")          
             credentials:dict = json.loads(self.open_json_file(file_path_credentials_json))
             self.log.logger.debug(f"Method: [data preparation] - Opened successfully JSON with credentials.json {credentials}")
-
             main_keys:list = self.get_keys_from_json(json_data)  # Store main_keys as an instance variable
             self.log.logger.info(f"Method: [data preparation] - extracted data 'main_keys' is: {main_keys}")
             element_ids = self.get_resource_id_from_json(main_keys, json_data, resourceid)  # Store element_ids
             self.log.logger.info(f"Method: [data preparation] - extracted data 'element_ids' is: {element_ids}")
             return credentials, main_keys, element_ids
+        
         except Exception as e:
             self.log.logger.error(f"Method: [data preparation] - returned error '{e}'")
         
@@ -74,7 +69,4 @@ class LoginPage():
             
         except FileNotFoundError:
             self.log.logger.warning(f"Method: [open_json_file] - The file '{file_path}' was not found.")
-            return None   
-    
-    def test(self):        
-        print("test_message") 
+            return None       

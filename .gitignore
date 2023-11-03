@@ -1,2 +1,5 @@
 __pycache__/*
 .DS_Store
+framework/__pycache__/*
+tests/login/__pycache__/*
+ utils/__pycache__/*

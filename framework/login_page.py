@@ -1,26 +1,14 @@
 from utils.logger import MyLogger
-import json
-import os
 from framework.page import Page
 from utils.file_utils import LoginPage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+
 
 class Login(LoginPage):
     def __init__(self):
         super().__init__()
         self.log = MyLogger()
-        self.driver = None 
-        
-        self.file_path_test_json = "tests/login/files/test_login_data.json"        
-        self.file_path_test_login_invalid_json = "tests/login/files/test_login_invalid.json"
-        self.file_path_test_burger_json = "tests/login/files/test_burger.json"
-        
+        self.driver = None         
        
-        self.file_path_credentials_json = "tests/login/files/credentials.json"
-        self.file_path_invalid_credentials_json = "tests/login/files/invalid_credentials.json"
-        
         self.resourceid = "resource-id"
         self.swipe_coordinates = {
             'start_x': 545,
@@ -28,65 +16,26 @@ class Login(LoginPage):
             'end_x': 570,
             'end_y': 1700,
         }
-    
         
-    def test_login_invalid(self, driver):
+    def test_login(self, driver, file_path, credentials_path) -> bool:
         try:
-            credentials, main_keys, element_ids  =  self.preper_data(self.file_path_test_login_invalid_json, self.file_path_invalid_credentials_json, self.resourceid)
-            page = Page(driver)
-            
-            # Step 1: Find and click the 'log_in' element
-            if page.click_element(main_keys[0], element_ids):
-                page.logger.info(f"Method: [test_login_invalid] - Clicked on: {main_keys[0]}.")
-            
-                # Step 2: Find the 'email_input_field' and send keys
-                if page.click_element(main_keys[1], element_ids):
-                    page.send_keys_to_element(main_keys[1], element_ids, credentials['login'])
-                    page.logger.info(f"Method: [test_login_invalid] - Found key: {main_keys[1]} '{element_ids[main_keys[1]]}' and sended  keys to '{credentials['login']}'.")
-                      
-
-                    # Step 3: Find the 'password_input_field' and send keys
-                    if page.click_element(main_keys[2], element_ids):
-                        page.send_keys_to_element(main_keys[1], element_ids, credentials['password'])
-                        page.logger.info(f"Method: [test_login_invalid] - Found key: {main_keys[2]} '{element_ids[main_keys[2]]}' and sended  keys to '{credentials['password']}'.")
-            
-                    # Step 4: Find and click the 'log_in_confirm' element
-                        if not page.find_element(main_keys[3], element_ids):
-                            page.logger.info(f"Method: [test_login_invalid] - Clicked on: {main_keys[3]} element.")
-                            
-                            # Step 5: Find and click the 'log_in_confirm' element
-                            
-                            page.logger.info(f"Method: [test_login_invalid] - Autorization not successful.")
-                            return True 
-                                    
-            else:
-                page.logger.error("Method: [test_login_invalid] - Failed to find or send keys.")
-                return False
-                   
-        except Exception as e:
-            self.log.logger.error(f"Method: [test_login_invalid] - Error occurred during login: {e}")
-            return False   
-        
-            
-    def test_login(self, driver) -> bool:
-        try:
-            credentials, main_keys, element_ids  =  self.preper_data(self.file_path_test_json, self.file_path_credentials_json, self.resourceid)
+            credentials, main_keys, element_ids  =  self.preper_data(file_path, credentials_path, self.resourceid)
             page = Page(driver)
             
             # Step 1: Find and click the 'log_in' element
             if page.click_element(main_keys[0], element_ids):
                 page.logger.info(f"Method: [test_login] - Clicked on: {main_keys[0]} element.")
-                page.logger.info(f"Method: [test_login_invalid] - Clicked on: {main_keys[0]}.") 
+                
             
                 # Step 2: Find the 'email_input_field' and send keys
                 if page.click_element(main_keys[1], element_ids):
                     page.send_keys_to_element(main_keys[1], element_ids, credentials['login'])
-                    page.logger.info(f"Method: [test_login] - Found key: {main_keys[1]} '{element_ids[main_keys[1]]}' and sended  keys to '{credentials['login']}'.")              
+                    page.logger.info(f"Method: [test_login] - Cliked key: {main_keys[1]} '{element_ids[main_keys[1]]}' and sended  keys to '{credentials['login']}'.")              
 
                     # Step 3: Find the 'password_input_field' and send keys
                     if page.click_element(main_keys[2], element_ids):
                         page.send_keys_to_element(main_keys[1], element_ids, credentials['password'])
-                        page.logger.info(f"Method: [test_login] - Found key: {main_keys[2]} '{element_ids[main_keys[2]]}' and sended  keys to '{credentials['password']}'.")
+                        page.logger.info(f"Method: [test_login] - Cliked key: {main_keys[2]} '{element_ids[main_keys[2]]}' and sended  keys to '{credentials['password']}'.")
             
                         # Step 4: Find and click the 'log_in_confirm' element
                         if page.click_element(main_keys[3], element_ids):
@@ -114,15 +63,51 @@ class Login(LoginPage):
                    
         except Exception as e:
             self.log.logger.error(f"Method: [test_login] - Error occurred during login: {e}")
+            return False    
+            
+    def test_login_invalid_pass(self, driver, file_path, credentials_path):
+        try:            
+            credentials, main_keys, element_ids  =  self.preper_data(file_path, credentials_path, self.resourceid)
+            page = Page(driver)
+            
+            # Step 1: Find and click the 'log_in' element
+            if page.click_element(main_keys[0], element_ids):
+                page.logger.info(f"Method: [test_login_invalid_pass] - Clicked on: {main_keys[0]}.")
+            
+                # Step 2: Find the 'email_input_field' and send keys
+                if page.click_element(main_keys[1], element_ids):
+                    page.send_keys_to_element(main_keys[1], element_ids, credentials['login'], clear=True)
+                    page.logger.info(f"Method: [test_login_invalid_pass] - Cliked key: {main_keys[1]} '{element_ids[main_keys[1]]}' and sended  keys to '{credentials['login']}'.")
+                      
+
+                    # Step 3: Find the 'password_input_field' and send keys
+                    if page.click_element(main_keys[2], element_ids):
+                        page.send_keys_to_element(main_keys[1], element_ids, credentials['password'])
+                        page.logger.info(f"Method: [test_login_invalid_pass] - Cliked key: {main_keys[2]} '{element_ids[main_keys[2]]}' and sended  keys to '{credentials['password']}'.")
+            
+                        # Step 4: Find and click the 'log_in_confirm' element
+                        if page.click_element(main_keys[3], element_ids):
+                            page.logger.info(f"Method: [test_login_invalid_pass] - Clicked on: {main_keys[3]} element.")
+                                                        
+                            # Step 5: Find and click the 'burger' element                           
+                            if not page.click_element(main_keys[4], element_ids):
+                                page.logger.info(f"Method: [test_login_invalid_pass] - Clicked on: {main_keys[4]} element.") 
+                            
+                                page.logger.error(f"Method: [test_login_invalid_pass] - Autorization not successful.")
+                                return True
+                                    
+            else:
+                page.logger.info("Method: [test_login_invalid_pass] - Failed to find or send keys.")
+                return False
+                   
+        except Exception as e:
+            self.log.logger.info(f"Method: [test_login_invalid_pass] - Error occurred during login: {e}")
             return False
-        
-    
-    
-        
-    def test_burger(self, driver):
+                                 
+    def test_burger(self, driver, file_path, credentials_path):
         
         try:
-            credentials, main_keys, element_ids  =  self.preper_data(self.file_path_test_burger_json, self.file_path_credentials_json, self.resourceid)
+            credentials, main_keys, element_ids  =  self.preper_data(file_path, credentials_path, self.resourceid)
             
             page = Page(driver)
             
@@ -132,14 +117,14 @@ class Login(LoginPage):
             
                 # Step 2: Find the 'email_input_field' and send keys
                 if page.click_element(main_keys[1], element_ids):
-                    page.send_keys_to_element(main_keys[1], element_ids, credentials['login'])
-                    page.logger.info(f"Method: [test_burger] - Found key: {main_keys[1]} '{element_ids[main_keys[1]]}' and sended  keys to '{credentials['login']}'.")
+                    page.send_keys_to_element(main_keys[1], element_ids, credentials['login'], clear=True)
+                    page.logger.info(f"Method: [test_burger] - Cliked key: {main_keys[1]} '{element_ids[main_keys[1]]}' and sended  keys to '{credentials['login']}'.")
                       
 
                     # Step 3: Find the 'password_input_field' and send keys
                     if page.click_element(main_keys[2], element_ids):
                         page.send_keys_to_element(main_keys[2], element_ids, credentials['password'])
-                        page.logger.info(f"Method: [test_burger] - Found key: {main_keys[2]} '{element_ids[main_keys[2]]}' and sended  keys to '{credentials['password']}'.")
+                        page.logger.info(f"Method: [test_burger] - Cliked key: {main_keys[2]} '{element_ids[main_keys[2]]}' and sended  keys to '{credentials['password']}'.")
             
                         # Step 4: Find and click the 'log_in_confirm' element
                         if page.click_element(main_keys[3], element_ids):

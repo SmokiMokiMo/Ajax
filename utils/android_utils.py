@@ -1,12 +1,6 @@
 import subprocess
 from   utils.logger  import MyLogger
 
-
-
-
-
-
-
 class AppCapabilitys():
     
     def __init__(self):
@@ -27,7 +21,7 @@ class AppCapabilitys():
                     devices = [device for device in output if device != 'device']
                     if devices:
                         self.log.logger.debug(f"Method: [android_get_uiid] - get device list: {devices}")
-                        return devices[0]  # Return the first device's UDID
+                        return devices[0] 
                     else:
                         self.log.logger.warning(f"Method: [android_get_uiid] - device list is empty: {output}")
                         return None
