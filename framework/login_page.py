@@ -3,6 +3,8 @@ from framework.page import Page
 from utils.file_utils import LoginPage
 
 
+# The Login class is responsible for automating the login process for an existing user with valid credentials, invalid data, etc...
+# It interacts with the application's user interface elements to log in, navigate through the app, and log out.
 class Login(LoginPage):
     def __init__(self):
         super().__init__()
@@ -16,7 +18,10 @@ class Login(LoginPage):
             'end_x': 570,
             'end_y': 1700,
         }
-        
+    
+    
+    # Authorization of an existing user with valid data
+    # It interacts with the application's user interface elements to log in, navigate through the app, and log out.
     def test_login(self, driver, file_path, credentials_path) -> bool:
         try:
             credentials, main_keys, element_ids  =  self.preper_data(file_path, credentials_path, self.resourceid)
@@ -64,7 +69,9 @@ class Login(LoginPage):
         except Exception as e:
             self.log.logger.error(f"Method: [test_login] - Error occurred during login: {e}")
             return False    
-            
+    
+    
+    # Authorization of an existing user with invalid data (incorrect password)       
     def test_login_invalid_pass(self, driver, file_path, credentials_path):
         try:            
             credentials, main_keys, element_ids  =  self.preper_data(file_path, credentials_path, self.resourceid)
@@ -103,7 +110,9 @@ class Login(LoginPage):
         except Exception as e:
             self.log.logger.info(f"Method: [test_login_invalid_pass] - Error occurred during login: {e}")
             return False
-                                 
+    
+    
+    # Checking the presence of Sidebar elements               
     def test_burger(self, driver, file_path, credentials_path):
         
         try:

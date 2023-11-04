@@ -5,12 +5,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.common.action_chains import ActionChains
+
+
+# Basic modules for working with application objects
 class Page(MyLogger):
     def __init__(self, driver):
         super().__init__()  
         self.driver = driver
         self._time_out: int = 15
-
+        
+        
+    # Checks if an element is clickable within a specified timeout.
+    # Returns True if the element is clickable, False otherwise.
     def check_clickable_element(self, element_name, by=By.ID) -> bool:
         try:
             if element_name:
@@ -23,7 +29,9 @@ class Page(MyLogger):
         except TimeoutException:
             self.logger.info(f"Method: [check_clickable_element] - Element '{element_name}' is not clickable or not found.")
             return False
+        
 
+    # Finds an element by its name, clicks it, and logs the result.
     def find_element(self, element_name: str, element_ids: dict, by=By.ID, timeout=10) -> bool:        
         try:
             element_id = element_ids.get(element_name)
@@ -38,7 +46,9 @@ class Page(MyLogger):
         except TimeoutException:
             self.logger.error(f"Method: [find_element] - Element key: '{element_name}', value: '{element_id}' not found within the specified timeout.")
             return False
-
+        
+        
+    # Clicks an element by its name and logs the result.
     def click_element(self, element_name: str, element_ids: dict, by=By.ID, timeout=10) -> bool:
         try:
             element_id = element_ids.get(element_name)
@@ -54,7 +64,7 @@ class Page(MyLogger):
             self.logger.error(f"Method: [click_element] - Element '{element_name}' not clickable or not found. Element id is {element_id}.")
             return False        
 
-        
+    # Taps on an element by its name and logs the result.  
     def tap_element(self, element_name: str, element_ids: dict, by=By.ID, timeout=10) -> bool:
         try:
             element_id = element_ids.get(element_name)
@@ -72,8 +82,7 @@ class Page(MyLogger):
             return False
 
     
-        
-
+    # Sends keys to an element and logs the result.
     def send_keys_to_element(self, element_name: str, element_ids: dict, keys_to_send: str, by=By.ID, timeout=10, clear:bool=False) -> bool:
         try:
             self.logger.info(f"Method: [send_keys_to_element] - Sent keys '{keys_to_send}'")
@@ -104,17 +113,13 @@ class Page(MyLogger):
             self.logger.error(f"Method: [send_keys_to_element] - An error occurred: {e}")
             return False
 
-        
-    def swipe(self, coordinats: dict):
+     
+    # Swipes on the screen based on provided coordinates.   
+    def swipe(self, coordinats: dict) -> bool:
         try:
-            self.driver.swipe(coordinats['start_x'], coordinats['start_y'], coordinats['end_x'], coordinats['end_y'], 200)
+            self.driver.swipe(coordinats['start_x'], coordinats['start_y'], coordinats['end_x'], coordinats['end_y'], 220)
             self.logger.info("Method: [swipe] - Swipe completed successfully.")
             return True
         except Exception as e:
             self.logger.error(f"Method: [swipe] - An error occurred: {e}")
             return False
-
-
-    
-    
-        

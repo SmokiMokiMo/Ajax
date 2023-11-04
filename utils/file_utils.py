@@ -1,25 +1,27 @@
 from utils.logger import MyLogger
 import json
 
+
+# This class encapsulates methods for handling JSON data and preparing data for user login tests.
 class LoginPage():    
-    
+    # Initialize the logger
     def __init__(self):        
         self.log = MyLogger() 
-             
         
+             
+    # Extract keys from a JSON string and return them as a list.  
     def get_keys_from_json(self, json_values) -> list:
-        try:
-            # Parse the JSON string into a dictionary
+        try:            
             data = json.loads(json_values)
             keys = list(data.keys())
             self.log.logger.info(f"Method: [get_keys_from_json] - Data extracted list of keys: {keys}")
             return keys
         except (json.JSONDecodeError, AttributeError) as e:
             self.log.logger.error(f"Method: [get_keys_from_json] got error: {e}")
+            
         
-                
-    def get_resource_id_from_json(self, main_keys, json_data, expected_values):
-        # Ensure that json_data is a dictionary, not a string
+    # Extract resource IDs from JSON data based on main keys and expected values.          
+    def get_resource_id_from_json(self, main_keys, json_data, expected_values):        
         try:
             if isinstance(json_data, str):
                 json_data = json.loads(json_data)
@@ -43,23 +45,26 @@ class LoginPage():
             return resource_ids
         except Exception as e:
             self.log.logger.error(f"Method: [get_resource_id_from_json] - got error: {e}")
+            
     
-    # Define the test method for user login    
+    # Prepare test data by opening and extracting data from JSON files. 
     def preper_data(self, file_path_test_json, file_path_credentials_json, resourceid):
         try:          
             json_data = self.open_json_file(file_path_test_json)
             self.log.logger.debug(f"Method: [data preparation] - Opened successfully JSON with test_login_data.json 'json_data'")          
             credentials:dict = json.loads(self.open_json_file(file_path_credentials_json))
             self.log.logger.debug(f"Method: [data preparation] - Opened successfully JSON with credentials.json {credentials}")
-            main_keys:list = self.get_keys_from_json(json_data)  # Store main_keys as an instance variable
+            main_keys:list = self.get_keys_from_json(json_data)  
             self.log.logger.info(f"Method: [data preparation] - extracted data 'main_keys' is: {main_keys}")
-            element_ids = self.get_resource_id_from_json(main_keys, json_data, resourceid)  # Store element_ids
+            element_ids = self.get_resource_id_from_json(main_keys, json_data, resourceid)  
             self.log.logger.info(f"Method: [data preparation] - extracted data 'element_ids' is: {element_ids}")
             return credentials, main_keys, element_ids
         
         except Exception as e:
             self.log.logger.error(f"Method: [data preparation] - returned error '{e}'")
-        
+            
+            
+    # Open and read the contents of a JSON file.
     def open_json_file(self, file_path):     
         try:
             with open(file_path, mode='r', encoding='UTF-8') as file:

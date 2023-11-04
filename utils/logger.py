@@ -3,6 +3,8 @@ import datetime
 import os
 import sys
 
+
+# This class provides logging functionality for the test framework.
 class MyLogger:
     logger_initialized = False
     

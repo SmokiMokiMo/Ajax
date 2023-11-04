@@ -12,6 +12,8 @@ log = MyLogger()
 
 stop_threads = False
 
+
+# Stop appium server after tests executing
 def stop_appium_server(appium_process):
     global stop_threads
     stop_threads = True
@@ -58,3 +60,4 @@ def appium_driver(run_appium_server):
         log.logger.error(f"Method: [appium_driver] - WebDriverException occurred: {e}")        
     except Exception as e:
         log.logger.error(f"Method: [appium_driver] - An error occurred while setting up the Appium driver: {e}")
+        #tearDown(driver)    

@@ -1,16 +1,21 @@
 import subprocess
 from   utils.logger  import MyLogger
 
+
+# This class encapsulates functions related to Appium capabilities for Android.
 class AppCapabilitys():
     
     def __init__(self):
         self.log = MyLogger()
         
         
+    # Read and log the output from an Appium server process.
     def read_appium_output(self, process):
         for line in process.stdout:
             self.log.logger.debug(f"Method: [run_appium_server] - Appium stdout: {line.strip()}")        
-   
+            
+            
+   # Get the UDID (Unique Device Identifier) of an Android device.
     def android_get_uiid(self) -> str:
         try:
             result = subprocess.run("adb devices | grep 'device' | grep -v 'List of devices attached'", stdout=subprocess.PIPE, text=True, shell=True)
@@ -33,7 +38,9 @@ class AppCapabilitys():
                 return None
         except Exception as e:
             self.log.logger.error(f"Method: [android_get_uiid] - Error: {e}")
+            
 
+    # Get the desired capabilities for an Android device.
     def android_get_desired_capabilities(self, udid=None):
         android_data = {
             "autoGrantPermissions": True,

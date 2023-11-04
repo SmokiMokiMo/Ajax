@@ -21,6 +21,8 @@ test_params = {
     },
 }
 
+
+# Use pytest's parametrize decorator to run test functions with different test data
 @pytest.mark.parametrize("test_function, test_data", test_params.items())
 def test_user_login(user_login_fixture, test_function, test_data):
     try:
@@ -54,9 +56,12 @@ def test_user_login(user_login_fixture, test_function, test_data):
         #tearDown(driver)
 
 
+# Define the tearDown function
 def tearDown(driver):
         driver.quit()
-       
+
+
+# Define a function to reset the app to its initial state   
 def reset_to_initial_state(driver):
     try:               
         app_package = driver.current_package
