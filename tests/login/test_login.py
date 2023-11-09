@@ -1,75 +1,98 @@
 from tests.login.conftest import user_login_fixture
-from utils.logger import MyLogger
-from framework.login_page import Login
 import pytest
+from framework.sidebar_page import SideBar
 
-lgn = Login()
+class TestLogin(SideBar):
+    def __init__():
+        super().__init__()
 
-# Define a dictionary of test parameters
-test_params = {
-    'test_user_login': {
-        'file_path': 'tests/login/files/test_login_data.json',
-        'credentials_path': 'tests/login/files/credentials.json',
-    },
-    'test_login_invalid_pass': {
-        'file_path': 'tests/login/files/test_login_invalid.json',
-        'credentials_path': 'tests/login/files/invalid_credentials.json',
-    },
-    'test_user_sidebar': {
-        'file_path': 'tests/login/files/test_burger.json',
-        'credentials_path': 'tests/login/files/credentials.json',
-    },
-}
+    # Initialize the Appium driver
+    test_data = [
+        {'username': 'qa.ajax.app.automation@gmail.com', 'password': 'qa_automation_password', 'expected_result': True},
+        {'username': 'qa.ajax.app.automation@gmail.com', 'password': 'qa_automation_password_invalid', 'expected_result': False},
+    ]
+
+    button_methods = [
+        self..click_button_burger,
+        self.click_button_app_setings,
+        lgn.click_button_back,
+        lgn.click_button_burger,
+        lgn.click_button_help,
+        lgn.click_button_back,
+        lgn.click_button_burger,
+        lgn.click_button_report_problem,
+        lgn.swip_down,
+        lgn.click_button_burger,
+        lgn.click_button_add_hub,
+        lgn.click_button_back,
+        lgn.click_button_terms_of_service,
+        lgn.click_button_back
+    ]
+
+    @pytest.mark.parametrize("test_case", test_data)
+    def test_user_login(self, user_login_fixture, test_case):
+        try:
+            driver = user_login_fixture
+            expected_result = test_case['expected_result']       
+            if self.lgn.login_app(driver) and self.lgn.log_out():            
+                self.reset_to_initial_state(driver)
+                assert actual_result == expected_result    
+
+        except Exception as e:
+            self.lgn.logger.error(f"An error occurred: {e}")
+
+    @pytest.mark.parametrize("test_case", test_data)
+    def test_user_login_invalid_cred(self, user_login_fixture, test_case):
+        try:
+            driver = user_login_fixture
+            expected_result = test_case['expected_result']
+            if self.lgn.login_app(driver) and self.lgn.log_out():            
+                self.reset_to_initial_state(driver)
+                assert actual_result == expected_result    
+
+        except Exception as e:
+            self.lgn.logger.error(f"An error occurred: {e}")
+
+    @pytest.mark.parametrize("test_case", test_data)
+    def test_side_bar(self, user_login_fixture, test_case):
+        try:       
+            driver = user_login_fixture
+            
+            if self.lgn.click_button_burger():
+                for button_method in self.button_methods:
+                    button_method()          
+            else:
+                self.lgn.logger.error("Failed to open side bar!")
+
+            login_result = self.lgn.test_login(driver)       
+            if login_result:
+                self.lgn.logger.info(f"Was successful")
+                self.reset_to_initial_state(driver)
+                assert login_result is True
+            else:
+                self.lgn.logger.error(f"Was failed")
+                self.reset_to_initial_state(driver)
+                assert False
+
+        except Exception as e:
+            self.lgn.logger.error(f"An error occurred: {e}")
 
 
-# Use pytest's parametrize decorator to run test functions with different test data
-@pytest.mark.parametrize("test_function, test_data", test_params.items())
-def test_user_login(user_login_fixture, test_function, test_data):
-    try:
-        lgn.log.logger.info(f"{test_data}\n\n")
-        driver = user_login_fixture
-
-        file_path = test_data['file_path']
-        credentials_path = test_data['credentials_path']
-
-        if test_function == 'test_user_login':
-            login_result = lgn.test_login(driver, file_path, credentials_path)
-        elif test_function == 'test_login_invalid_pass':
-            login_result = lgn.test_login_invalid_pass(driver, file_path, credentials_path)
-        elif test_function == 'test_user_sidebar':
-             login_result = lgn.test_burger(driver, file_path, credentials_path)
-
-        if login_result:
-            lgn.log.logger.info(f"Method: [{test_function}] - Was successful")
-            reset_to_initial_state(driver)
-            assert login_result is True
-        else:
-            lgn.log.logger.error(f"Method: [{test_function}] - Was failed")
-            reset_to_initial_state(driver)
-            assert False
-
-    except Exception as e:
-        lgn.log.logger.error(f"Method: [{test_function}] - An error occurred: {e}")
-        raise
-    finally:        
-        lgn.log.logger.error(f"Method: [{test_function}] - module 'test_user.py' fixture teardown")
-        #tearDown(driver)
-
-
-# Define the tearDown function
-def tearDown(driver):
-        driver.quit()
 
 
 # Define a function to reset the app to its initial state   
 def reset_to_initial_state(driver):
     try:               
         app_package = driver.current_package
-               
+                
         driver.terminate_app(app_package)
-        
+            
         driver.activate_app(app_package)
-        
-        lgn.log.logger.info("Method: [reset_to_initial_state] - App state reset")
+            
+        lgn.logger.info("App state reset")
     except Exception as e:
-        lgn.log.logger.error(f"Method: [reset_to_initial_state] - An error occurred while resetting the app state: {str(e)}")
+        lgn.logger.error(f"An error occurred while resetting the app state: {str(e)}")
+
+# Define the tearDown function
+def tearDown(driver):
+    driver.quit()

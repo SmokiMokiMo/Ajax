@@ -5,10 +5,11 @@ import sys
 
 
 # This class provides logging functionality for the test framework.
+
 class MyLogger:
     logger_initialized = False
-    
-    def __init__(self):        
+
+    def __init__(self):
         self.class_name = self.__class__.__name__
         if not MyLogger.logger_initialized:
             MyLogger.initialize_logger()
@@ -25,20 +26,19 @@ class MyLogger:
             os.makedirs(root_directory)
 
         logger = logging.getLogger('my_logger')
-        logger.setLevel(logging.DEBUG)  
+        logger.setLevel(logging.DEBUG)
 
-        
         file_handler = logging.FileHandler(log_file_path)
         file_handler.setLevel(logging.DEBUG)
 
-        
         console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setLevel(logging.DEBUG)  
+        console_handler.setLevel(logging.DEBUG)
 
-        formatter = logging.Formatter("[%(asctime)s,%(msecs)03d] - %(levelname)s - %(message)s", "%Y-%m-%d %H:%M:%S")
+        # Include the %(name)s placeholder in the log message format
+        formatter = logging.Formatter("[%(asctime)s,%(msecs)03d] - [%(levelname)-7s] - [%(module)-12s] - [%(funcName)s] - %(message)s", "%Y-%m-%d %H:%M:%S")
 
         file_handler.setFormatter(formatter)
         console_handler.setFormatter(formatter)
 
         logger.addHandler(file_handler)
-        logger.addHandler(console_handler)   
+        logger.addHandler(console_handler)

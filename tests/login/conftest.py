@@ -8,12 +8,12 @@ from utils.logger import MyLogger
 def user_login_fixture(appium_driver):      
     try:
         lgn = MyLogger()
-        lgn.logger.info(f"Method: [user_login_fixture] - Initializing the appium driver: {appium_driver}")
+        lgn.logger.info(f"Initializing the appium driver: {appium_driver}")
         yield appium_driver
         
     except Exception as e:
-        lgn.logger.error(f"Method: [user_login_fixture] - An error occurred during fixture setup: {e}")
+        lgn.logger.error(f"An error occurred during fixture setup: {e}")
         raise
     finally:          
-        lgn.logger.info("Method: [user_login_fixture] - 'Login' fixture teardown")
+        lgn.logger.info("'Login' fixture teardown")
         #tearDown(driver)

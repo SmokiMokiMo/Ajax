@@ -37,10 +37,10 @@ def run_appium_server():
         #output_reader.start()    
         
         time.sleep(5)
-        log.logger.debug("Method: [run_appium_server] - timer is ower.")
+        log.logger.debug("Timer is ower.")
         
     except Exception as e:
-        log.logger.error(f"Method: [run_appium_server] - Failed to start Appium server: {e}")
+        log.logger.error(f"Failed to start Appium server: {e}")
     finally:
         stop_appium_server(appium_process)
     return appium_process
@@ -54,10 +54,10 @@ def appium_driver(run_appium_server):
         options.load_capabilities(app_cap.android_get_desired_capabilities('auto'))        
         appium_driver = webdriver.Remote('http://127.0.0.1:4723', options=options)       
         
-        log.logger.info(f"Method: [appium_driver] - Appium driver initialized successfully with desired_caps: {appium_driver}")
+        log.logger.info(f"Appium driver initialized successfully with desired_caps: {appium_driver}")
         yield appium_driver        
     except WebDriverException as e:
-        log.logger.error(f"Method: [appium_driver] - WebDriverException occurred: {e}")        
+        log.logger.error(f"WebDriverException occurred: {e}")        
     except Exception as e:
-        log.logger.error(f"Method: [appium_driver] - An error occurred while setting up the Appium driver: {e}")
+        log.logger.error(f"An error occurred while setting up the Appium driver: {e}")
         #tearDown(driver)    

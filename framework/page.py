@@ -17,100 +17,78 @@ class Page(MyLogger):
         
     # Checks if an element is clickable within a specified timeout.
     # Returns True if the element is clickable, False otherwise.
-    def check_clickable_element(self, element_name, by=By.ID) -> bool:
-        try:
-            if element_name:
-                element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((by, element_name)))
-                self.logger.info(f"Method: [check_clickable_element] - Element '{element_name}' is clickable.")
-                return True
-            else:
-                self.logger.error(f"Method: [check_clickable_element] - Element '{element_name}' not clickable.")
-                return False
+    def check_clickable_element(self, element_id, by=By.ID) -> bool:
+        try:            
+            element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((by, element_id)))
+            self.logger.info(f"Element '{element_id}' is clickable.")
+            return True
+            
         except TimeoutException:
-            self.logger.info(f"Method: [check_clickable_element] - Element '{element_name}' is not clickable or not found.")
+            self.logger.info(f"Element '{element_id}' is not clickable or not found.")
             return False
         
 
     # Finds an element by its name, clicks it, and logs the result.
-    def find_element(self, element_name: str, element_ids: dict, by=By.ID, timeout=10) -> bool:        
-        try:
-            element_id = element_ids.get(element_name)
-            if element_id:
-                element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((by, element_id)))
-                element.click()
-                self.logger.info(f"Method: [find_element] - Element key: '{element_name}', value: '{element_id}' was successfully found.")
-                return True
-            else:
-                self.logger.error(f"Method: [find_element] - Element  key: '{element_name}', value: '{element_id}' not found in element_ids. Element id is {element_id}.")
-                return False
+    def find_element(self, element_id: dict, by=By.ID, timeout=10) -> bool:        
+        try:           
+            element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((by, element_id)))
+            element.click()
+            self.logger.info(f"Method: [find_element] - Element '{element_id}' was successfully found.")
+            return True            
         except TimeoutException:
-            self.logger.error(f"Method: [find_element] - Element key: '{element_name}', value: '{element_id}' not found within the specified timeout.")
+            self.logger.error(f"Method: [find_element] - Element '{element_id}' not found within the specified timeout.")
             return False
         
         
     # Clicks an element by its name and logs the result.
-    def click_element(self, element_name: str, element_ids: dict, by=By.ID, timeout=10) -> bool:
-        try:
-            element_id = element_ids.get(element_name)
-            if element_id:
-                element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable((by, element_id)))
-                element.click()
-                self.logger.info(f"Method: [click_element] - Clicked on element key: '{element_name}', value: '{element_id}'.")
-                return True
-            else:
-                self.logger.error(f"Method: [click_element] - Element '{element_name}' not found in element_ids. Element id is {element_id}.")
-                return False
+    def click_element(self, element_id: str, by=By.ID, timeout=10) -> bool:
+        try:            
+            element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable((by, element_id)))
+            element.click()
+            self.logger.info(f"Clicked on element '{element_id}'.")
+            return True             
         except TimeoutException:
-            self.logger.error(f"Method: [click_element] - Element '{element_name}' not clickable or not found. Element id is {element_id}.")
+            self.logger.error(f"Element '{element_id}' not clickable or not found.")
             return False        
 
     # Taps on an element by its name and logs the result.  
-    def tap_element(self, element_name: str, element_ids: dict, by=By.ID, timeout=10) -> bool:
+    def tap_element(self, element_id: dict, by=By.ID, timeout=10) -> bool:
         try:
-            element_id = element_ids.get(element_name)
-            if element_id:
-                element = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((by, element_id)))
-                action = TouchAction(self.driver)
-                action.tap(element).perform()
-                self.logger.info(f"Method: [tap_element] - Tapped on element key: '{element_name}', value: '{element_id}'.")
-                return True
-            else:
-                self.logger.error(f"Method: [tap_element] - Element '{element_name}' not found in element_ids. Element id is {element_id}.")
-                return False
+            
+            element = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((by, element_id)))
+            action = TouchAction(self.driver)
+            action.tap(element).perform()
+            self.logger.info(f"Tapped on element '{element_id}'.")
+            return True           
         except TimeoutException:
-            self.logger.error(f"Method: [tap_element] - Element key: '{element_name}', value: '{element_id}' not found within the specified timeout.")
+            self.logger.error(f"Element '{element_id}' not found within the specified timeout.")
             return False
 
     
     # Sends keys to an element and logs the result.
-    def send_keys_to_element(self, element_name: str, element_ids: dict, keys_to_send: str, by=By.ID, timeout=10, clear:bool=False) -> bool:
+    def send_keys_to_element(self, element_id: dict, keys_to_send: str, by=By.ID, timeout=10, clear:bool=False) -> bool:
         try:
-            self.logger.info(f"Method: [send_keys_to_element] - Sent keys '{keys_to_send}'")
-            element_id = element_ids.get(element_name)
+            self.logger.debug(f"Sent keys '{keys_to_send}'")           
             if clear is True:
                 element = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((by, element_id)))
-                self.logger.info(f"Method: [send_keys_to_element] - skip  input '{element_id}'.")
+                self.logger.info(f"Skip  input '{element_id}'.")
                 action = ActionChains(self.driver)                
                 self.driver.press_keycode(123)                               
                 action.perform()                
-                self.logger.info(f"Method: [send_keys_to_element] - Sent keys '{keys_to_send}' to element '{element_id}'.")
+                self.logger.info(f"Sent keys '{keys_to_send}' to element '{element_id}'.")
                 return True    
                     
-            elif clear is False:
+            else: 
                 element = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((by, element_id)))
-                self.logger.info(f"Method: [send_keys_to_element] - Clearing element '{element_id}'.")
-                action = ActionChains(self.driver)               
-                
+                self.logger.info(f"Clearing element '{element_id}'.")
+                action = ActionChains(self.driver)        
                 action.send_keys(keys_to_send)
                 action.perform()                
-                self.logger.info(f"Method: [send_keys_to_element] - Sent keys '{keys_to_send}' to element '{element_id}'.")
-                return True
-            else:
-                self.logger.error(f"Method: [send_keys_to_element] - Element '{element_name}' not found in element_ids.")
-          
+                self.logger.info(f"Sent keys '{keys_to_send}' to element '{element_id}'.")
+                return True          
                 
         except Exception as e:
-            self.logger.error(f"Method: [send_keys_to_element] - An error occurred: {e}")
+            self.logger.error(f"An error occurred: {e}")
             return False
 
      
