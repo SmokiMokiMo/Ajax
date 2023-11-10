@@ -9,7 +9,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 # Basic modules for working with application objects
 class Page(MyLogger):
-    def __init__(self, driver):
+    def __init__(self, driver=None):
         super().__init__()  
         self.driver = driver
         self._time_out: int = 15
@@ -42,14 +42,15 @@ class Page(MyLogger):
         
     # Clicks an element by its name and logs the result.
     def click_element(self, element_id: str, by=By.ID, timeout=10) -> bool:
-        try:            
-            element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable((by, element_id)))
+        try:
+            element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable((by, element_id)))            
             element.click()
             self.logger.info(f"Clicked on element '{element_id}'.")
-            return True             
+            return True
         except TimeoutException:
             self.logger.error(f"Element '{element_id}' not clickable or not found.")
-            return False        
+            return False
+       
 
     # Taps on an element by its name and logs the result.  
     def tap_element(self, element_id: dict, by=By.ID, timeout=10) -> bool:

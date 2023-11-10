@@ -34,9 +34,9 @@ def run_appium_server():
             text=True)        
         
         #output_reader = threading.Thread(target=app_cap.read_appium_output, args=(appium_process,))
-        #output_reader.start()    
+        #output_reader.start()  
+        time.sleep(5)       
         
-        time.sleep(5)
         log.logger.debug("Timer is ower.")
         
     except Exception as e:
@@ -51,7 +51,8 @@ def appium_driver(run_appium_server):
     app_cap = AppCapabilitys()
     try:        
         options = UiAutomator2Options()
-        options.load_capabilities(app_cap.android_get_desired_capabilities('auto'))        
+        log.logger.info("Try capabilities")
+        options.load_capabilities(app_cap.android_get_desired_capabilities())        
         appium_driver = webdriver.Remote('http://127.0.0.1:4723', options=options)       
         
         log.logger.info(f"Appium driver initialized successfully with desired_caps: {appium_driver}")

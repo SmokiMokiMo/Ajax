@@ -1,12 +1,12 @@
 from framework.page import Page
 from utils.file_utils import FilesExtractor
+from utils.logger import MyLogger
 
-
-class SideBar(Page):
+class SideBar(Page, MyLogger):
 
     def __init__(self) -> None:
         super().__init__()
-        self.file_extractop = FilesExtractor()
+        self.file_extractor = FilesExtractor()
         self.driver = None
 
         self.swipe_coordinates: dict = {
@@ -16,8 +16,8 @@ class SideBar(Page):
             'end_y': 1700,
         }
            
-
-        self.data_from_ini_files = self.file_extractop.extract_data_from_ini_files()
+        #self.data_from_ini_files = self.file_extractor.extract_data_from_ini_files()
+                
           
     # Find and click the 'burger' element
     def click_burger(self):        
