@@ -5,7 +5,6 @@ import sys
 
 
 # This class provides logging functionality for the test framework.
-
 class MyLogger:
     logger_initialized = False
 
@@ -33,9 +32,8 @@ class MyLogger:
 
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setLevel(logging.DEBUG)
-
-        # Include the %(name)s placeholder in the log message format
-        formatter = logging.Formatter("[%(asctime)s,%(msecs)03d] - [%(levelname)-7s] - [%(module)-12s] - [%(funcName)s] - %(message)s", "%Y-%m-%d %H:%M:%S")
+        
+        formatter = logging.Formatter("[%(asctime)s,%(msecs)03d] - [%(levelname)-7s] - [%(module)-12s] - [%(funcName)-23s] - %(message)s", "%Y-%m-%d %H:%M:%S")
 
         file_handler.setFormatter(formatter)
         console_handler.setFormatter(formatter)

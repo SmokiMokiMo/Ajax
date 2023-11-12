@@ -3,9 +3,7 @@ from   utils.logger  import MyLogger
 
 
 # This class encapsulates functions related to Appium capabilities for Android.
-class AppCapabilitys(MyLogger):  
-        
-        
+class AppCapabilitys(MyLogger):       
     # Read and log the output from an Appium server process.
     def read_appium_output(self, process):
         for line in process.stdout:
@@ -35,7 +33,6 @@ class AppCapabilitys(MyLogger):
                 return None
         except Exception as e:
             self.logger.error(f"Error: {e}")
-
             
 
     # Get the desired capabilities for an Android device.
@@ -47,28 +44,25 @@ class AppCapabilitys(MyLogger):
                 "newCommandTimeout": 500,
                 "noSign": True, 
                 "platformName": "Android",
-                "deviceName": "emulator-5554",
+                "deviceName": "None",
                 "platformVersion": "14",
                 "resetKeyboard": True,
                 "systemPort": 8301,
                 "takesScreenshot": True,
-                "udid": "emulator-5554",
+                "udid": "None",
                 "appPackage": "com.ajaxsystems",
                 "appActivity": "com.ajaxsystems.ui.activity.LauncherActivity"
             }
             
             # Get the UDID automatically
             udid = self.android_get_uiid()
+            self.logger.info(f"Actual list of list available Devices - '{udid}'")
             if udid:
                 android_data['udid'] = udid
-                #android_data['deviceName'] = udid[0]
+                android_data['deviceName'] = udid[0]
                 self.logger.debug(f"'udid' is '{udid}' passed.")
             else:
                 self.logger.error(f"Failed to retrieve UDID. Please check your device connection. Device list is {udid}")            
             return android_data
         except Exception as e:
             self.logger.error(f"Error: {e}")
-            
-if __name__ in '__main__':
-    app_ver = AppCapabilitys()
-    app_ver.android_get_desired_capabilities()

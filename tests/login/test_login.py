@@ -1,123 +1,101 @@
 from tests.login.conftest import user_login_fixture
+from tests.conftest import appium_driver
 import pytest
 from framework.sidebar_page import SideBar
 from framework.login_page import Login
 import pytest
 
-test_data = [
-    {'username': 'qa.ajax.app.automation@gmail.com', 'password': 'qa_automation_password', 'expected_result': True},    
-]
+class TestApp:
+
+    # Method to perform the login action.
+    def log_in(self, lp, login_test_case) -> bool:       
+        if lp.click_log_in_button():
+            lp.set_username(login_test_case['username'])
+            lp.set_password(login_test_case['password'])
+            lp.click_on_button_to_login()
+            lp.logger.debug("Login application successful!")
+            return True
+        else:
+            lp.logger.error("Login application failed!")
+            return False
 
 
-@pytest.mark.parametrize("test_case", test_data)
-def test_user_login(user_login_fixture, test_case):
-    login_page = None  
-    try:
-        login_page = Login(driver=user_login_fixture)
-        username = test_case['username']
-        password = test_case['password']
-        expected_result = test_case['expected_result']
+    # Method to perform the logout action.
+    def log_out(self, sbr):     
+        if sbr.click_burger():
+            sbr.click_app_setings()
+            sbr.click_sing_out()
+            sbr.find_log_in()
+            sbr.logger.debug("Log out successful!")
+            return True
+        else:
+            sbr.logger.error("Login application failed!")
+            return False
         
-        if login_page.click_log_in_button():
-            if login_page.set_username(username):
-                if login_page.set_password(password):
-                    login_page.click_on_button_to_login()
-                    login_page.logger.debug("Login application successful!")
-                    actual_result = True  # Set to True if login is successful
 
-        # Assertion to check if actual_result matches expected_result
-        assert actual_result == expected_result
-    except Exception as e:
-        login_page.logger.error(f"An error occurred: {e}")
-    finally:
-        # Add any necessary cleanup code, like closing the driver
-        if login_page:
-            login_page.driver.quit()
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            # button_methods = [
-    #     self.click_button_burger,
-    #     self.click_button_app_setings,
-    #     lgn.click_button_back,
-    #     lgn.click_button_burger,
-    #     lgn.click_button_help,
-    #     lgn.click_button_back,
-    #     lgn.click_button_burger,
-    #     lgn.click_button_report_problem,
-    #     lgn.swip_down,
-    #     lgn.click_button_burger,
-    #     lgn.click_button_add_hub,
-    #     lgn.click_button_back,
-    #     lgn.click_button_terms_of_service,
-    #     lgn.click_button_back
-    # ]
-
-    # @pytest.mark.parametrize("test_case", test_data)
-    # def test_user_login_invalid_cred(self, user_login_fixture, test_case):
+    # @pytest.mark.parametrize("login_test_case", [
+    #     {'username': 'qa.ajax.app.automation@gmail.com', 'password': 'qa_automation_password', 'expected_result': True},
+    #     {'username': 'qa.ajax.app.automation@gmail.com_invalid', 'password': 'qa_automation_password_invalid', 'expected_result': False},
+    # ])
+    
+    # # Test method for user login scenario.
+    # def test_user_login(self, appium_driver, login_test_case):
+    #     sbr = SideBar(appium_driver)
+    #     lp = Login(appium_driver)         
+    #     expected_result = login_test_case['expected_result']       
     #     try:
-    #         driver = user_login_fixture
-    #         expected_result = test_case['expected_result']
-    #         if self.login_app(driver) and self.log_out():            
-    #             self.reset_to_initial_state(driver)
-    #             assert actual_result == expected_result    
-
-    #     except Exception as e:
-    #         self.logger.error(f"An error occurred: {e}")
-
-    # @pytest.mark.parametrize("test_case", test_data)
-    # def test_side_bar(self, user_login_fixture, test_case):
-    #     try:       
-    #         driver = user_login_fixture
+    #         if self.log_in(lp, login_test_case) and self.log_out(sbr):
+    #             actual_result = True          
+    #         else:
+                
+    #             actual_result = False
             
-    #         if self.click_button_burger():
-    #             for button_method in self.button_methods:
-    #                 button_method()          
-    #         else:
-    #             self.logger.error("Failed to open side bar!")
-
-    #         login_result = self.lgn.test_login(driver)       
-    #         if login_result:
-    #             self.logger.info(f"Was successful")
-    #             self.reset_to_initial_state(driver)
-    #             assert login_result is True
-    #         else:
-    #             self.lgn.logger.error(f"Was failed")
-    #             self.reset_to_initial_state(driver)
-    #             assert False
-
+    #         sbr.logger.info(f"Actual result is - {actual_result}. Expected result is - {expected_result}")            
+    #         assert actual_result == expected_result
+            
+    #     except AssertionError as ae:
+    #         raise ae 
     #     except Exception as e:
-    #         self.logger.error(f"An error occurred: {e}")
+    #         sbr.logger.error(f"An error occurred: {e}")
+            
 
+    @pytest.mark.parametrize("sidebar_test_case", [
+        {'username': 'qa.ajax.app.automation@gmail.com', 'password': 'qa_automation_password', 'expected_result': True,
+         'function_list': ['click_burger', 'click_app_setings', 'click_button_back', 'click_burger', 'click_button_help', 'click_button_back',
+                            'click_burger', 'click_button_report_problem', 'swip_down', 'click_burger', 'click_button_add_hub',
+                            'click_button_close', 'click_burger','click_button_terms_of_service', 'click_button_back']}])
+    
+    # Test method for sidebar interactions.
+    def test_sidebar(self, user_login_fixture, sidebar_test_case):       
+        try:            
+            sbr = SideBar(user_login_fixture)
+            lp = Login(user_login_fixture)            
+            actual_result = False 
+            expected_result = sidebar_test_case['expected_result']
+            self.log_in(lp, sidebar_test_case)           
 
+            if self.log_in(lp, sidebar_test_case):
+                for button_method in sidebar_test_case['function_list']:
+                    try:
+                        getattr(sbr, button_method)()                        
+                    except AssertionError:
+                        raise  
+                    except Exception as e:
+                        sbr.logger.error(f"Error while executing {button_method}: {e}")
+                        actual_result = False  
+                        break                                
+                else:
+                    sbr.logger.error("test_sidebar -test DELETE!!!!!!!!!-----------{}!")
+                    self.log_out(sbr)                    
+                    actual_result = True
+            else:
+                sbr.logger.error("Failed to open sidebar!")
+                actual_result = False 
 
+            sbr.logger.info(f"Actual result is - {actual_result}. Expected result is - {expected_result}")
+            assert actual_result is expected_result
 
-# Define a function to reset the app to its initial state   
-def reset_to_initial_state(self, driver):
-    try:               
-        app_package = driver.current_package
-                    
-        driver.terminate_app(app_package)
-                
-        driver.activate_app(app_package)
-                
-        self.logger.info("App state reset")
-    except Exception as e:
-        self.logger.error(f"An error occurred while resetting the app state: {str(e)}")
-
-# Define the tearDown function
-def tearDown(driver):
-    driver.quit()
+        except AssertionError as ae:
+            raise ae  
+        except Exception as e:
+            sbr.logger.error(f"An error occurred: {e}")

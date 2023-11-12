@@ -5,8 +5,7 @@ import os
 
 
 # This class encapsulates methods for handling JSON data and preparing data for user login tests.
-class FilesExtractor(MyLogger):    
-    # Initialize the logger
+class FilesExtractor(MyLogger):   
     def __init__(self):
         super().__init__()     
         self.config = configparser.ConfigParser()
