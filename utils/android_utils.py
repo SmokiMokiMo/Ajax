@@ -12,27 +12,31 @@ class AppCapabilitys(MyLogger):
             
     # Get the UDID (Unique Device Identifier) of an Android device.
     def android_get_uiid(self) -> list:
-        try:
-            result = subprocess.run("adb devices | grep 'device' | grep -v 'List of devices attached'", stdout=subprocess.PIPE, text=True, shell=True)
-            output = result.stdout
+        try:           
+            result = subprocess.run(["adb", "devices"], stdout=subprocess.PIPE, text=True)
+            
             if result.returncode == 0:
-                output = (result.stdout).split()
-                if len(output) >= 2:
-                    devices = [device for device in output if device != 'device']
-                    if devices:
-                        self.logger.debug(f"Get device list: {devices}")
-                        return devices[0] 
-                    else:
-                        self.logger.warning(f"Device list is empty: {output}")
-                        return None
+                output_lines = result.stdout.strip().split('\n')
+                devices = []
+
+                for line in output_lines:
+                    parts = line.split()
+                    if len(parts) == 2:
+                        status = parts[0]
+                        devices.append(status)
+
+                if devices:
+                    self.logger.info(f"Connected devices: {devices}")
+                    return devices
                 else:
-                    self.logger.warning(f"Device list is empty: {output}")
+                    self.logger.warning("No connected devices found.")
                     return None
             else:
-                self.logger.warning(f"Operation unsuccessful. Stdout: {output}")
+                self.logger.warning(f"ADB command unsuccessful. Stdout: {result.stdout}")
                 return None
         except Exception as e:
             self.logger.error(f"Error: {e}")
+            return None
             
 
     # Get the desired capabilities for an Android device.
@@ -58,9 +62,9 @@ class AppCapabilitys(MyLogger):
             udid = self.android_get_uiid()
             self.logger.info(f"Actual list of list available Devices - '{udid}'")
             if udid:
-                android_data['udid'] = udid
+                android_data['udid'] = udid[0]
                 android_data['deviceName'] = udid[0]
-                self.logger.debug(f"'udid' is '{udid}' passed.")
+                self.logger.info(f"'udid' is '{udid}' passed.")
             else:
                 self.logger.error(f"Failed to retrieve UDID. Please check your device connection. Device list is {udid}")            
             return android_data

@@ -11,7 +11,4 @@ def user_login_fixture(appium_driver):
         yield appium_driver
     except Exception as e:
         lgn.logger.error(f"An error occurred during fixture setup: {e}")
-        raise
-    finally:
-        lgn.logger.info("'Terminate app and restart appium server")
-        # appium_driver.quit()
+        raise  

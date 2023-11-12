@@ -1,0 +1,62 @@
+[2023-11-12 17:04:06,009] - [INFO   ] - [android_utils] - [android_get_uiid       ] - Connected devices: ['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']
+[2023-11-12 17:04:06,009] - [INFO   ] - [android_utils] - [android_get_desired_capabilities] - Actual list of list available Devices - '['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']'
+[2023-11-12 17:04:06,009] - [INFO   ] - [android_utils] - [android_get_desired_capabilities] - 'udid' is '['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']' passed.
+[2023-11-12 17:04:12,524] - [INFO   ] - [conftest    ] - [appium_driver          ] - Appium driver initialized successfully with desired_caps: <appium.webdriver.webdriver.WebDriver (session="4dcd52b8-569c-4ab5-9938-ba404454d698")>
+[2023-11-12 17:04:16,217] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authHelloLogin' element.
+[2023-11-12 17:04:17,963] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/compose_view' element.
+[2023-11-12 17:04:20,158] - [INFO   ] - [page        ] - [send_keys_to_element   ] - Sent keys 'qa.ajax.app.automation@gmail.com' to element 'com.ajaxsystems:id/compose_view'.
+[2023-11-12 17:04:21,472] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authLoginPassword' element.
+[2023-11-12 17:04:23,514] - [INFO   ] - [page        ] - [send_keys_to_element   ] - Sent keys 'qa_automation_password' to element 'com.ajaxsystems:id/authLoginPassword'.
+[2023-11-12 17:04:24,697] - [INFO   ] - [page        ] - [check_clickable_element] - Element 'com.ajaxsystems:id/authLogin' is clickable.
+[2023-11-12 17:04:25,601] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authLogin' element.
+[2023-11-12 17:04:30,339] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/menuDrawer' element.
+[2023-11-12 17:04:32,506] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/settings' element.
+[2023-11-12 17:04:34,425] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/accountInfoLogoutNavigate' element.
+[2023-11-12 17:04:34,473] - [INFO   ] - [page        ] - [find_element           ] - Element 'com.ajaxsystems:id/authHelloLogin' was successfully found.
+[2023-11-12 17:04:34,474] - [INFO   ] - [test_login  ] - [test_user_login_valid_data] - Actual result is - True. Expected result is - True
+[2023-11-12 17:04:34,753] - [INFO   ] - [android_utils] - [android_get_uiid       ] - Connected devices: ['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']
+[2023-11-12 17:04:34,754] - [INFO   ] - [android_utils] - [android_get_desired_capabilities] - Actual list of list available Devices - '['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']'
+[2023-11-12 17:04:34,754] - [INFO   ] - [android_utils] - [android_get_desired_capabilities] - 'udid' is '['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']' passed.
+[2023-11-12 17:04:39,575] - [INFO   ] - [conftest    ] - [appium_driver          ] - Appium driver initialized successfully with desired_caps: <appium.webdriver.webdriver.WebDriver (session="cc4c47a5-6a11-40fe-9387-396fa69049b9")>
+[2023-11-12 17:04:43,759] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authHelloLogin' element.
+[2023-11-12 17:04:44,544] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/compose_view' element.
+[2023-11-12 17:04:50,495] - [INFO   ] - [page        ] - [send_keys_to_element   ] - Sent keys '_________qa.ajax.app.automation@gmail.com_________' to element 'com.ajaxsystems:id/compose_view'.
+[2023-11-12 17:04:51,871] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authLoginPassword' element.
+[2023-11-12 17:04:54,247] - [INFO   ] - [page        ] - [send_keys_to_element   ] - Sent keys 'qa_automation_password' to element 'com.ajaxsystems:id/authLoginPassword'.
+[2023-11-12 17:04:55,424] - [INFO   ] - [page        ] - [check_clickable_element] - Element 'com.ajaxsystems:id/authLogin' is clickable.
+[2023-11-12 17:04:56,476] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authLogin' element.
+[2023-11-12 17:05:06,775] - [ERROR  ] - [page        ] - [click_element          ] - TimeoutException: Element 'com.ajaxsystems:id/menuDrawer' not found within the specified timeout.
+[2023-11-12 17:05:06,775] - [ERROR  ] - [test_login  ] - [log_out                ] - Login application failed!
+[2023-11-12 17:05:06,775] - [INFO   ] - [test_login  ] - [test_user_login_invalid_data] - Actual result is - False. Expected result is - False
+[2023-11-12 17:05:07,117] - [INFO   ] - [android_utils] - [android_get_uiid       ] - Connected devices: ['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']
+[2023-11-12 17:05:07,117] - [INFO   ] - [android_utils] - [android_get_desired_capabilities] - Actual list of list available Devices - '['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']'
+[2023-11-12 17:05:07,117] - [INFO   ] - [android_utils] - [android_get_desired_capabilities] - 'udid' is '['emulator-5554', 'emulator-5556', 'emulator-5558', 'emulator-5560', 'emulator-5562']' passed.
+[2023-11-12 17:05:13,575] - [INFO   ] - [conftest    ] - [appium_driver          ] - Appium driver initialized successfully with desired_caps: <appium.webdriver.webdriver.WebDriver (session="eb9cc67d-16f5-42a9-b0d0-d15f4a1365d2")>
+[2023-11-12 17:05:13,576] - [INFO   ] - [conftest    ] - [user_login_fixture     ] - Initializing the appium driver: <appium.webdriver.webdriver.WebDriver (session="eb9cc67d-16f5-42a9-b0d0-d15f4a1365d2")>
+[2023-11-12 17:05:17,309] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authHelloLogin' element.
+[2023-11-12 17:05:19,101] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/compose_view' element.
+[2023-11-12 17:05:21,578] - [INFO   ] - [page        ] - [send_keys_to_element   ] - Sent keys 'qa.ajax.app.automation@gmail.com' to element 'com.ajaxsystems:id/compose_view'.
+[2023-11-12 17:05:22,339] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authLoginPassword' element.
+[2023-11-12 17:05:24,743] - [INFO   ] - [page        ] - [send_keys_to_element   ] - Sent keys 'qa_automation_password' to element 'com.ajaxsystems:id/authLoginPassword'.
+[2023-11-12 17:05:25,922] - [INFO   ] - [page        ] - [check_clickable_element] - Element 'com.ajaxsystems:id/authLogin' is clickable.
+[2023-11-12 17:05:26,847] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/authLogin' element.
+[2023-11-12 17:05:32,526] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/menuDrawer' element.
+[2023-11-12 17:05:35,510] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/settings' element.
+[2023-11-12 17:05:35,722] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/back' element.
+[2023-11-12 17:05:36,869] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/menuDrawer' element.
+[2023-11-12 17:05:39,306] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/help' element.
+[2023-11-12 17:05:40,028] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/back' element.
+[2023-11-12 17:05:41,372] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/menuDrawer' element.
+[2023-11-12 17:05:43,544] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/logs' element.
+[2023-11-12 17:05:44,204] - [INFO   ] - [page        ] - [swipe                  ] - Swipe completed successfully.
+[2023-11-12 17:05:45,268] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/menuDrawer' element.
+[2023-11-12 17:05:47,194] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/addHub' element.
+[2023-11-12 17:05:47,949] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/backButton' element.
+[2023-11-12 17:05:48,638] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/menuDrawer' element.
+[2023-11-12 17:05:50,695] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/documentation_text' element.
+[2023-11-12 17:05:51,423] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/back' element.
+[2023-11-12 17:05:52,539] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/menuDrawer' element.
+[2023-11-12 17:05:53,703] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/settings' element.
+[2023-11-12 17:05:55,603] - [INFO   ] - [page        ] - [click_element          ] - Clicked on: 'com.ajaxsystems:id/accountInfoLogoutNavigate' element.
+[2023-11-12 17:05:55,637] - [INFO   ] - [page        ] - [find_element           ] - Element 'com.ajaxsystems:id/authHelloLogin' was successfully found.
+[2023-11-12 17:05:55,638] - [INFO   ] - [test_login  ] - [test_sidebar           ] - Actual result is - True. Expected result is - True

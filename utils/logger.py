@@ -25,13 +25,13 @@ class MyLogger:
             os.makedirs(root_directory)
 
         logger = logging.getLogger('my_logger')
-        logger.setLevel(logging.DEBUG)
+        logger.setLevel(logging.INFO)
 
         file_handler = logging.FileHandler(log_file_path)
-        file_handler.setLevel(logging.DEBUG)
+        file_handler.setLevel(logging.INFO)
 
         console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setLevel(logging.DEBUG)
+        console_handler.setLevel(logging.INFO)
         
         formatter = logging.Formatter("[%(asctime)s,%(msecs)03d] - [%(levelname)-7s] - [%(module)-12s] - [%(funcName)-23s] - %(message)s", "%Y-%m-%d %H:%M:%S")
 

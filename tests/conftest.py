@@ -71,6 +71,6 @@ def appium_driver(run_appium_server):
     except Exception as e:
         log.logger.error(f"An error occurred while setting up the Appium driver: {e}")
     finally:
-        # Quit Appium driver
+        log.logger.debug("Quit Appium driver") 
         if appium_driver:
             appium_driver.quit()
